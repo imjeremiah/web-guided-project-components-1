@@ -17,4 +17,4 @@
   },
 ]
 
-export default panelData
+export default panelData;
