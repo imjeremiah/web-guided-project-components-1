@@ -7,17 +7,40 @@ const imageData = [
   { imageURL: 'https://images.dog.ceo/breeds/mastiff-bull/n02108422_2947.jpg' },
 ]
 
+function makeImage(obj) {
+  // create DOM elements using createElement
+  const image = document.createElement('img');
+  // update data in the element
+  image.src = obj.imageURL;
+  // optional ::: style it!
+  image.style.height = '20em';
+  // return the element
+  return image;
+}
+
+imageData.forEach(imgObj => {
+  const imgElem = makeImage(imgObj);
+  // document.body.prepend(imgElem);
+})
 
 // TASK 1- Import the data we need to "hydrate" our component.
 //  On the one hand, the default export from data/panelData.js
 //  On the other hand, the default export from data/constants.js
 //  Destructure `open` and `close` from the constants
-
+import panelData from './data/panelData.js';
+import constants from './data/constants.js';
+// constants.open
+// constants.close
+const { open, close } = constants;
+/**
+ * const open = constants.open
+ * const close = constants.close
+ */
 
 // TASK 2- Verify our imports using log statements
-console.log() // log the panelData
-console.log() // log the open arrow
-console.log() // log the close arrow
+console.log(panelData); // log the panelData
+console.log(open); // log the open arrow
+console.log(close); // log the close arrow
 
 
 // TASK 3- Comment out the div.panel from index.html and grab its parent element.
@@ -28,6 +51,20 @@ const accordion = null
 
 // TASK 4- Create a function 'makePanel' that creates a panel exactly as you see it in the HTML.
 function makePanel(/* what data does the panel need? */) {
+  // <!-- Remove this -->
+  // <div class="panel">
+  //   <div class="panel-bar">
+  //     <h3>Title of Panel</h3>
+  //     <div class="panel-buttons">
+  //       <button class="panel-btn-open">&#9660</button>
+  //       <button class="panel-btn-close hide-btn">Close</button>
+  //     </div>
+  //   </div>
+  //   <div class="panel-content toggle-on">
+  //     Content of panel
+  //   </div>
+  // </div>
+  // <!-- Remove this -->
 
 
   // TASK 5- Instantiate all the elements needed for a panel
