@@ -82,21 +82,6 @@ function makePanel(obj) {
   panelButtons.appendChild(openButton);
   panelButtons.appendChild(closeButton);
 
-    // <!-- Remove this -->
-  // <div class="panel">
-  //   <div class="panel-bar">
-  //     <h3>Title of Panel</h3>
-  //     <div class="panel-buttons">
-  //       <button class="panel-btn-open">&#9660</button>
-  //       <button class="panel-btn-close hide-btn">Close</button>
-  //     </div>
-  //   </div>
-  //   <div class="panel-content toggle-on">
-  //     Content of panel
-  //   </div>
-  // </div>
-  // <!-- Remove this -->
-
   // TASK 7- Add proper class names to our elements (See index.html for reference)
   // paying attention to the elements that need to start out hidden
   panel.classList.add("panel");
@@ -110,6 +95,8 @@ function makePanel(obj) {
   //  and also using the open and close arrows imported at the top of the file
   panelTitle.textContent = obj.title;
   panelContent.textContent = obj.content;
+  openButton.textContent = open;
+  closeButton.textContent = close;
 
   // TASK 9- When the 'open' or 'close' buttons are clicked, the content is toggled on/off:
   //  - the open button needs to go away (the 'hide-btn' class name controls this)
@@ -118,16 +105,34 @@ function makePanel(obj) {
 
 
   // don't forget to return the panel!
-  return null
+  return panel;
 }
-
-const testPanel = makePanel({ title: 'foo', content: 'bar'});
+// JUST TO TEST
+// const testPanel = makePanel({ title: 'foo', content: 'bar'});
+// accordion.appendChild(testPanel);
 
 // TASK 10- Loop through the panelData we imported from the data folder
 //  creating panels for each content and title and append them to the DOM.
 //  We can do this with a single forEach, or with a map and a forEach.
+// [1, 2, 3, 4] => map() => [2, 3, 4, 5]
+const panelElements = panelData.map(data => {
+  return makePanel(data);
+})
 
+panelElements.forEach(elem => {
+  accordion.appendChild(elem);
+})
 
+// panelData.forEach(elem => {
+//   const panel = makePanel(elem);
+//   accordion.appendChild(panel);
+// })
+/**
+ * map -> Does something to every element in an array and returns a new one
+ * filter -> Filters through the array create a new array with elements that pass a conditional
+ * reduce (Warren unit 3! Fun!)
+ * find -> Returns the first that matches a condition
+ */
 // [STRETCH] Comment out the links inside the nav and
 // write a linkMaker that takes { href, className, text }
 // and returns an anchor tag with the right href, class and textContent.
