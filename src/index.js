@@ -29,6 +29,8 @@ imageData.forEach(imgObj => {
 //  Destructure `open` and `close` from the constants
 import panelData from './data/panelData.js';
 import constants from './data/constants.js';
+import linkData from './data/linkData.js';
+
 // constants.open
 // constants.close
 const { open, close } = constants;
@@ -142,3 +144,26 @@ panelElements.forEach(elem => {
 // and returns an anchor tag with the right href, class and textContent.
 // Loop over the 'linkData' in the data folder, generate anchor tags
 // and append them to the nav.
+
+function linkMaker({ href, className, text }) {
+  // Create the element
+  const linkElem = document.createElement('a');
+  // Add meta data / attributes
+  linkElem.href = href;
+  // Add any styling + classes + ids
+  linkElem.className = className;
+  linkElem.style.backgroundColor = 'purple';
+  // Add content
+  linkElem.textContent = text;
+  // RETURN
+  return linkElem;
+}
+
+{/* <a href="#" class="nav-item">Home</a>
+<a href="#" class="nav-item">About</a>
+<a href="#" class="nav-item">Blog</a>
+<a href="#" class="nav-item">Contact</a> */}
+linkData.forEach(link => {
+  const linkElement = linkMaker(link);
+  document.querySelector('nav').appendChild(linkElement);
+})
