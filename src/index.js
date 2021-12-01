@@ -38,19 +38,20 @@ const { open, close } = constants;
  */
 
 // TASK 2- Verify our imports using log statements
-console.log(panelData); // log the panelData
-console.log(open); // log the open arrow
-console.log(close); // log the close arrow
+// console.log(panelData); // log the panelData
+// console.log(open); // log the open arrow
+// console.log(close); // log the close arrow
 
 
 // TASK 3- Comment out the div.panel from index.html and grab its parent element.
 //  We will generate the panel with code, and we'll need the parent
 //  so we can append the code-generated panel to the DOM.
-const accordion = null
+const accordion = document.querySelector('.accordion');
 
 
 // TASK 4- Create a function 'makePanel' that creates a panel exactly as you see it in the HTML.
-function makePanel(/* what data does the panel need? */) {
+function makePanel(obj) {
+  console.log(obj);
   // <!-- Remove this -->
   // <div class="panel">
   //   <div class="panel-bar">
@@ -110,6 +111,7 @@ function makePanel(/* what data does the panel need? */) {
   return null
 }
 
+const testPanel = makePanel({ title: 'foo', content: 'bar'});
 
 // TASK 10- Loop through the panelData we imported from the data folder
 //  creating panels for each content and title and append them to the DOM.
