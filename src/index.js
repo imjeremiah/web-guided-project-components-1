@@ -51,22 +51,6 @@ const accordion = document.querySelector('.accordion');
 
 // TASK 4- Create a function 'makePanel' that creates a panel exactly as you see it in the HTML.
 function makePanel(obj) {
-  // <!-- Remove this -->
-  // <div class="panel">
-  //   <div class="panel-bar">
-  //     <h3>Title of Panel</h3>
-  //     <div class="panel-buttons">
-  //       <button class="panel-btn-open">&#9660</button>
-  //       <button class="panel-btn-close hide-btn">Close</button>
-  //     </div>
-  //   </div>
-  //   <div class="panel-content toggle-on">
-  //     Content of panel
-  //   </div>
-  // </div>
-  // <!-- Remove this -->
-
-
   // TASK 5- Instantiate all the elements needed for a panel
   const panel = document.createElement('div');
   const panelBar = document.createElement('div');
@@ -91,14 +75,41 @@ function makePanel(obj) {
     </div>
   */
 
+  panel.appendChild(panelBar); // <div><div></div></div>
+  panel.appendChild(panelContent);
+  panelBar.appendChild(panelTitle);
+  panelBar.appendChild(panelButtons);
+  panelButtons.appendChild(openButton);
+  panelButtons.appendChild(closeButton);
+
+    // <!-- Remove this -->
+  // <div class="panel">
+  //   <div class="panel-bar">
+  //     <h3>Title of Panel</h3>
+  //     <div class="panel-buttons">
+  //       <button class="panel-btn-open">&#9660</button>
+  //       <button class="panel-btn-close hide-btn">Close</button>
+  //     </div>
+  //   </div>
+  //   <div class="panel-content toggle-on">
+  //     Content of panel
+  //   </div>
+  // </div>
+  // <!-- Remove this -->
 
   // TASK 7- Add proper class names to our elements (See index.html for reference)
   // paying attention to the elements that need to start out hidden
-
+  panel.classList.add("panel");
+  panelBar.classList.add("panel-bar");
+  panelButtons.classList.add("panel-buttons");
+  panelContent.classList.add("panel-content");
+  openButton.classList.add("panel-btn-open");
+  closeButton.classList.add("panel-btn-close", "hide-btn");
 
   // TASK 8- Set text content using arguments as raw material
   //  and also using the open and close arrows imported at the top of the file
-
+  panelTitle.textContent = obj.title;
+  panelContent.textContent = obj.content;
 
   // TASK 9- When the 'open' or 'close' buttons are clicked, the content is toggled on/off:
   //  - the open button needs to go away (the 'hide-btn' class name controls this)
