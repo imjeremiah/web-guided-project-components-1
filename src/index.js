@@ -138,22 +138,22 @@ panelData.forEach(panel => {
 // Loop over the 'linkData' in the data folder, generate anchor tags
 // and append them to the nav.
 
-// function linkMaker({href, className, text }) {
-//   // step 1: create the element
-//   const link = document.createElement('a');
-//   // step 2: add data (content)
-//   link.textContent = text;
-//   // step 3: add className for styling
-//   link.className = className;
-//   // step 4: add any associated functionality
-//   link.href = href;
-//   // step 5: NEVER FORGET TO RETURN
-//   return link;
-// }
+function linkMaker({href, className, text }) {
+  // step 1: create the element
+  const link = document.createElement('a');
+  // step 2: add data (content)
+  link.textContent = text;
+  // step 3: add className for styling
+  link.className = className;
+  // step 4: add any associated functionality
+  link.href = href;
+  // step 5: NEVER FORGET TO RETURN
+  return link;
+}
 
-// linkData.forEach(link => {
-//   const linkElem = linkMaker(link);
-//   document.querySelector('nav').appendChild(linkElem);
-// });
+linkData.forEach(link => {
+  const linkElem = linkMaker(link);
+  document.querySelector('nav').appendChild(linkElem);
+});
 
-// // const form = document.querySelector('stopIt');
+// const form = document.querySelector('stopIt');
